@@ -75,6 +75,7 @@ function getData(XMLcode, subject) {
     }
     if (!subjectFound) {
         subjectHTMLcode = "<p>" + falseMessage.textContent + "</p>";
+        courseListElem.innerHTML = "";
     }
     subjectInfoElem.innerHTML = subjectHTMLcode;
 }
