@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE movieList SYSTEM "movielist.dtd">
+
+<movieList>
+    
+    <category>Science Fiction</category>
+
+    <movie>
+        <title>Interstellar</title>
+        <credits>
+            <director>Christopher Nolan</director>
+            <writer>Jonathan Nolan</writer>
+            <writer>Christopher Nolan</writer>
+        </credits>
+        <description>En grupp forskare och upptäcktsresande planerar att hitta en ny värld i en
+            annan galax genom att färdas genom ett nyupptäckt maskhål nära Saturnus. Det blir det
+            viktigaste uppdraget i mänsklighetens historia.</description>
+        <score>8.7</score>
+        <rating>PG-13</rating>
+        <production>
+            <date>
+                <year>2014</year>
+                <month>11</month>
+                <day>07</day>
+            </date>
+            <budget currency="USD">165 miljoner</budget>
+            <country>USA</country>
+            <country>Storbritannien</country>
+            <country>Kanada</country>
+        </production>
+        <IMDb_website url="https://www.imdb.com/title/tt0816692/" />
+    </movie>
+
+    <movie>
+        <title>The Maze Runner</title>
+        <credits>
+            <director>Wes Ball</director>
+            <writer>Noah Oppenheim</writer>
+            <writer>Grant Pierce Myers</writer>
+            <writer>T.S. Nowlin</writer>
+        </credits>
+        <description>Thomas vaknar upp instängd i en gigantisk, ständigt föränderlig labyrint
+            tillsammans med en grupp andra pojkar. Han har inget minne av världen utanför förutom
+            konstiga drömmar. Pojkarnas enda chans till överlevnad är att samarbeta.</description>
+        <score>6.8</score>
+        <rating>PG-13</rating>
+        <production>
+            <date>
+                <year>2014</year>
+                <month>09</month>
+                <day>19</day>
+            </date>
+            <budget currency="USD">34 miljoner</budget>
+            <country>USA</country>
+            <country>Storbritannien</country>
+        </production>
+        <IMDb_website
+            url="https://www.imdb.com/title/tt1790864/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_the%2520maze" />
+    </movie>
+
+    <movie>
+        <title>Stalker</title>
+        <credits>
+            <director>Andrei Tarkovsky</director>
+            <writer>Arkadiy Strugatskiy</writer>
+            <writer>Boris Strugatskiy</writer>
+            <writer>Andrei Tarkovsky</writer>
+        </credits>
+        <description>Stalkern arbetar som vägvisare och leder en författare och en vetenskapsman in
+            i den mystiska Zonen, en plats där många underliga företeelser sker. I en bunker i Zonen
+            sägs ett rum finnas som kan uppfylla alla ens innersta önskningar.</description>
+        <score>8.1</score>
+        <rating>Utan Etikett</rating>
+        <production>
+            <date>
+                <year>1980</year>
+                <month>04</month>
+                <day>17</day>
+            </date>
+            <budget currency="RUB">1 miljon</budget>
+            <country>Sovjetunionen</country>
+        </production>
+        <IMDb_website url="https://www.imdb.com/title/tt0079944/" />
+    </movie>
+
+</movieList>

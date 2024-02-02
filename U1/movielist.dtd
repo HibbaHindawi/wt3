@@ -1,0 +1,42 @@
+<!-- 
+movielist
+    category
+    movie+
+        title
+        credits
+            director
+            writer
+        description?
+        score
+        rating
+        production
+            date
+                year
+                month
+                day
+            budget
+            country
+        IMDb_website
+            attr:url
+    date
+-->
+<!ELEMENT movieList (category, movie+)>
+    <!ELEMENT category (#PCDATA)>
+    <!ELEMENT movie (title, credits, description?, score, rating, production, IMDb_website)>
+        <!ELEMENT title (#PCDATA)>
+        <!ELEMENT credits (director+, writer+)>
+            <!ELEMENT director (#PCDATA)>
+            <!ELEMENT writer (#PCDATA)>
+        <!ELEMENT description (#PCDATA)>
+        <!ELEMENT score (#PCDATA)>
+        <!ELEMENT rating (#PCDATA)>
+        <!ELEMENT production (date, budget, country+)>
+            <!ELEMENT date (year, month, day)>
+                <!ELEMENT year (#PCDATA)>
+                <!ELEMENT month (#PCDATA)>
+                <!ELEMENT day (#PCDATA)>
+            <!ELEMENT budget (#PCDATA)>
+                <!ATTLIST budget currency (USD|RUB|SEK|GBP) #REQUIRED>
+            <!ELEMENT country (#PCDATA)>
+        <!ELEMENT IMDb_website EMPTY>
+            <!ATTLIST IMDb_website url CDATA #REQUIRED>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE movieList SYSTEM "movielist.dtd">
+
+<movieList>
+
+    <category>Skräck</category>
+
+    <movie>
+        <title>Insidious: The Red Door</title>
+        <credits>
+            <director>Patrick Wilson</director>
+            <writer>Leigh Whannell</writer>
+            <writer>Scott Teems</writer>
+        </credits>
+        <description>För att bekämpa sina demoner måste Josh och Dalton gå djupare in i The Further än någonsin tidigare, och möta sin familjs mörka och skrämmande ondska som lurar bakom den röda dörren.</description>
+        <score>5.5</score>
+        <rating>PG-13</rating>
+        <production>
+            <date>
+                <year>2023</year>
+                <month>07</month>
+                <day>05</day>
+            </date>
+            <budget currency="USD">16 miljoner</budget>
+            <country>USA</country>
+            <country>Kanada</country>
+        </production>
+        <IMDb_website url="https://www.imdb.com/title/tt13405778/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_insidiou"/>
+    </movie>
+
+    <movie>
+        <title>The Ring</title>
+        <credits>
+            <director>Gore Verbinski</director>
+            <writer>Ehren Kruger</writer>
+            <writer>Kôji Suzuki</writer>
+            <writer>Hiroshi Takahashi</writer>
+        </credits>
+        <description>När fyra ungdomar dör sju dagar efter att ha tittat på ett videoband spårar en reporter upp bandet och tittar på det. Nu har hon sju dagar på sig att lösa mysteriet.</description>
+        <score>7.1</score>
+        <rating>PG-13</rating>
+        <production>
+            <date>
+                <year>2003</year>
+                <month>02</month>
+                <day>21</day>
+            </date>
+            <budget currency="USD">48 miljoner</budget>
+            <country>USA</country>
+            <country>Japan</country>
+        </production>
+        <IMDb_website url="https://www.imdb.com/title/tt0298130/"/>
+    </movie>
+
+    <movie>
+        <title>The Texas Chainsaw Massacre</title>
+        <credits>
+            <director>Marcus Nispel</director>
+            <writer>Kim Henkel</writer>
+            <writer>Tobe Hooper</writer>
+            <writer>Scott Kosar</writer>
+        </credits>
+        <description>Ett gäng tonåringar är på bilsemester och förvillar sig av misstag in i en lada bebodd av kannibaler.</description>
+        <score>6.2</score>
+        <rating>R</rating>
+        <production>
+            <date>
+                <year>2004</year>
+                <month>01</month>
+                <day>16</day>
+            </date>
+            <budget currency="USD">9,5 miljoner</budget>
+            <country>USA</country>
+        </production>
+        <IMDb_website url="https://www.imdb.com/title/tt0324216/"/>
+    </movie>
+
+</movieList>

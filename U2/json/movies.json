@@ -1,0 +1,82 @@
+{
+    "category": "Skräck",
+    "movie": [
+        {
+           "title": "Insidious: The Red Door",
+           "credits": {
+                "director": "Patrick Wilson",
+                "writer1": "Leigh Whanell",
+                "writer2": "Scott Teems"
+           },
+           "description": "För att bekämpa sina demoner måste Josh och Dalton gå djupare in i The Further än någonsin tidigare, och möta sin familjs mörka och skrämmande ondska som lurar bakom den röda dörren.",
+           "score": 5.5,
+           "rating": "PG-13",
+           "production": {
+                "date": {
+                    "year": 2023,
+                    "month": 7,
+                    "day": 5
+                },
+                "budget": {
+                    "value": 16000000,
+                    "currency": "USD"
+                },
+                "country1": "USA",
+                "country2": "Kanada"
+           },
+           "IMDb_website":"https://www.imdb.com/title/tt13405778/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_insidiou"
+        },
+        {
+            "title": "The Ring",
+            "credits": {
+                 "director": "Gore Verbinski",
+                 "writer1": "Ehren Kruger",
+                 "writer2" : "Kôji Suzuki",
+                 "writer3" : "Hiroshi Takahashi"
+            },
+            "description": "När fyra ungdomar dör sju dagar efter att ha tittat på ett videoband spårar en reporter upp bandet och tittar på det. Nu har hon sju dagar på sig att lösa mysteriet.",
+            "score": 7.1,
+            "rating": "PG-13",
+            "production": {
+                 "date": {
+                     "year": 2003,
+                     "month": 2,
+                     "day": 21
+                 },
+                 "budget": {
+                     "value": 48000000,
+                     "currency": "USD"
+                 },
+                 "country1": "USA",
+                 "country2": "Japan"
+            },
+            "IMDb_website":"https://www.imdb.com/title/tt0298130/"
+         },
+         {
+            "title": "The Texas Chainsaw Massacre",
+            "credits": {
+                 "director": "Marcus Nispel",
+                 "writer1": "Kim Henkel",
+                 "writer2" : "Tobe Hooper",
+                 "writer3" : "Scott Kosar"
+            },
+            "description": "Ett gäng tonåringar är på bilsemester och förvillar sig av misstag in i en lada bebodd av kannibaler.",
+            "score": 6.2,
+            "rating": "R",
+            "production": {
+                 "date": {
+                     "year": 2004,
+                     "month": 1,
+                     "day": 16
+                 },
+                 "budget": {
+                     "value": 9500000,
+                     "currency": "USD"
+                 },
+                 "country": "USA"
+            },
+            "IMDb_website":"https://www.imdb.com/title/tt0324216/"
+         }
+    ]
+
+}
