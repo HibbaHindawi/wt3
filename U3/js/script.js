@@ -52,8 +52,8 @@ function getData(XMLcode, subject) {
             let courselist = s.querySelector("courselist"); //anropar elementet med namnet courselist
             let name = s.querySelector("name").textContent; //anropar elementet med namnet name
             let info = s.querySelector("info").textContent; //anropar elementet med namnet info
+            let subjectURL = s.getAttribute("url"); //hämtar url av subject
             let JSONcodePromise = requestCourse(courselist.textContent); // anropar requestCourse och skickar över namnet på json filen
-            
             JSONcodePromise.then(data => {
                 let JSONcode = data; //sparar den konverterade JSON filen, konverterades från en promise till en vanlig objekt
                 for(let i = 0; i < JSONcode.course.length; i++){
@@ -63,12 +63,13 @@ function getData(XMLcode, subject) {
                     if (c.teacher){
                         courseHTMLcode += "<li>Lärare: " + c.teacher + "</li>";
                     }
+                    courseHTMLcode += "<li> <a href=" + c.website.url + ">" +"Webbplats</a></li>";
                     courseHTMLcode += "</ul>";
                 }
                 courseListElem.innerHTML = courseHTMLcode;
             })
             subjectFound = true;
-            subjectHTMLcode += "<h3>" + name + "</h3>";
+            subjectHTMLcode += "<h3><a href=" + subjectURL + ">" + name + "</a></h3>";
             subjectHTMLcode += "<p>" + info + "</p>";
             break;
         }

@@ -87,13 +87,14 @@ function getCartItem(artnr) {
 // ----- Extramerit
 // Uppdatera varans mängd med amount, som ska vara antingen -1 eller +1.
 function changeQuantityInCart(index, amount) {
+    if(cart[index].quantity == 0){
+        cart[index].quantity = 1;
+        amount = 1;
+    }
     cart[index].quantity += amount;
     if(cart[index].quantity > 0){
         showCart();
     }
-    else(
-        removeFromCart(index)
-    )
 } // Slut changeQuantityInCart
 
 // Skapar HTML-kod av varukorgen, beräknar pris och lägger till händelselyssnare på knappar.

@@ -13,28 +13,64 @@ function init() {
     document.querySelector("#teacherBtn").addEventListener("click", addTeachers); // Används i extramerit
 } // Slut init
 window.addEventListener("load", init); // init aktiveras då sidan är inladdad
-// --------------------------------------------------
+
 // Kopiera alla länkar ur huvudtexten och lägg upp dem i en lista.
 function listLinks() {
-    
+    let links = document.querySelectorAll("#courses1 a");
+    let ulElem = document.querySelector("#linkList");
+    if(ulElem.innerHTML === ""){
+        let listItems = "";
+        for(let i = 0; i < links.length; i++){
+           listItems += "<li><a href='" + links[i].getAttribute("href") + "'" + "target='_blank'>" + links[i].textContent + "</a></li>";
+        }
+        ulElem.innerHTML = listItems;
+    }
 } // Slut listLinks
-// --------------------------------------------------
+
 // Den kurs användaren klickat på, läggs in överst i kurslistan.
 function addCourse() {
-    
+    let currentCourse = this;
+    let divElem = document.querySelector("#courseList");
+    let existingCourses = [];
+    for (let i = 0; i < divElem.children.length; i++) {
+        existingCourses.push(divElem.children[i].innerText);
+    }
+    if (existingCourses.includes(currentCourse.innerText)) {
+        return;
+    }
+    let listItem = document.createElement("p");
+    listItem.innerText = currentCourse.innerText;
+    listItem.addEventListener("click", removeCourse);
+    divElem.insertBefore(listItem, divElem.firstChild);
 } // Slut addCourse
-// --------------------------------------------------
+
 // Den kurs användaren klickat på i kurslistan, tas bort.
 function removeCourse() {
-    
+    let currentCourse = this;
+    currentCourse.remove();
 } // Slut removeCourse
-// --------------------------------------------------
+
 // ----- Extramerit -----
 // Funktion som lägger till lärare i kurslistan
-function addTeachers() {
-    const teachers = ["Bathsheda Babbling", "Alastar Moody", "Filius Flitwick", "Minerva McGonagall", "Albus Dumbeldore"];
-    const teacherLinks = ["https://www.hp-lexicon.org/character/bathsheda-babbling/", "https://www.hp-lexicon.org/character/alastor-mad-eye-moody/", "https://www.hp-lexicon.org/character/filius-flitwick/", "https://www.hp-lexicon.org/character/mcgonagall-family/minerva-mcgonagall/", "https://www.hp-lexicon.org/character/dumbledore-family/albus-dumbledore/"];
-    
-    
+async function addTeachers() {
+    let response = await fetch("data/teachers.xml");
+    let data = await response.text();
+    const parser = new DOMParser();
+    const XMLcode = parser.parseFromString(data, "application/xml");
+
+    let courseListElem = document.querySelectorAll("#courses3 li");
+    let courses = XMLcode.querySelectorAll("teachers course");
+
+    for (let i = 0; i < courseListElem.length; i++) {
+        let courseListCode = courseListElem[i].textContent.substring(0, 5);
+        for (let j = 0; j < courses.length; j++) {
+            let coursesCode = courses[j].getAttribute("code"); 
+            if (coursesCode === courseListCode) {
+              let teacher = courses[j].querySelector("teacher").textContent;
+              let url = courses[j].querySelector("link").getAttribute("url");
+              courseListElem[i].innerHTML += "<br><a href=" + url + " target='_blank'>" + teacher + "</a>";
+            }
+        }   
+    }
 } // Slut addTeachers
 // --------------------------------------------------
