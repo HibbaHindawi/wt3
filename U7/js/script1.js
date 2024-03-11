@@ -8,6 +8,7 @@ let viewerElem;         // Element som omger koden för hela bildspelet
 let wrapperElem;        // Element som omger alla "slides"
 let slideWidth;         // Bredd på en "slide" (ändras då skärmstorleken ändras)
 let nrOfSlides;         // Hur många slides som visas samtidigt
+let clickCounter = 0; //räknare för antal klick, för att detektera
 // --------------------------------------------------
 // Initiering då webbsidan är inläst
 function init() {
@@ -83,6 +84,26 @@ function checkKey(e) {
     } // Slut switch
 } // Slut checkKey
 // --------------------------------------------------
+
+//Kontrollerar antal klick
+function checkClick(){
+    clickCounter++;
+    setTimeout(() => clickCounter = 0, 400); //nollställ räknaren efter 400mx och nollställ clickCounter
+    if(clickCounter == 2){
+        this.style.backgroundColor = "#eeaa33";
+        setTimeout(() => this.style.backgroundColor = "", 500);
+
+        let product = this;
+        let slideNumber = Array.from(product.parentNode.children).indexOf(product); //hämtar ut index från arrayen med produkter
+        let parameter = [chocolate, caramel, softcandy]; //sparar namn på parametrarna i en array
+        if(slideNumber < 3){
+            showProducts(parameter[slideNumber]); //skickar med korrekt parameter med hjälp av indexet
+        }
+        else{
+            noProducts();
+        }
+    }
+}
 // Skifta till föregående slide
 function shiftToPrevious() {
     if (currentIx > nrOfSlides) {

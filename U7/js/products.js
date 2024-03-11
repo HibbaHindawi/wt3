@@ -22,6 +22,8 @@ function initCategories() {
         divElem.appendChild(h4Elem);
         wrapperElem.appendChild(divElem);
         divElem.addEventListener("pointerdown", dragStart);
+        divElem.addEventListener("click", checkClick);
+
     }
     maxIx = categories.group.length - 1;
     currentIx = 0;
