@@ -1,0 +1,47 @@
+@charset "UTF-8";
+/* ----- Stil för sidan med kakor ----- */
+
+#cookies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.cookie-box {
+    flex: 0 1 250px;
+    box-shadow: 0px 0px 8px 2px #000;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    touch-action: none;
+}
+
+.cookie-box img {
+    display: block;
+}
+
+.cookie-box div {
+    width: 90%;
+    height: 90%;
+    position: absolute;
+    overflow: hidden;
+    border-radius: 5%;
+    box-shadow: 0px 0px 20px 5px #000 inset, 0px 0px 20px 5px #000;
+    background-position: center;
+    background-size: 250px 375px;
+    opacity: 0.95;
+    scale: 0.01;
+}
+
+.cookie-box:nth-of-type(1) div {
+    background-image: url(../img/cookies/cookies1inside.jpg);
+}
+
+.cookie-box:nth-of-type(2) div {
+    background-image: url(../img/cookies/cookies2inside.jpg);
+}
+
+.cookie-box:nth-of-type(3) div {
+    background-image: url(../img/cookies/cookies3inside.jpg);
+}

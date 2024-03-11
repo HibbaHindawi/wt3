@@ -1,0 +1,91 @@
+@charset "UTF-8";
+/* ----- Stil för uppgiften ----- */
+
+div {
+    box-sizing: border-box;
+}
+
+/* ----- Stil för slides med produktkategorier ----- */
+/* Samma CSS-kod som i exempel F7-ex8.
+   Här ska du ändra några detaljer - se instruktioner i uppgiften. */
+#imgViewer {
+    max-width: 100%; /* Bredd på rutan för slides */
+    margin: 0 auto;
+}
+
+.slideshow { /* Element som ger placering och bredd på ramen */
+    border: 1px solid #000;
+    background-color: #FFF;
+    overflow: hidden; /* Visa endast den slide som finns i rutan */
+    touch-action: none; /* Förhindra normala touch-händelser på pekskärm */
+}
+
+.slideshow > div { /* Element som omger alla "slides" (wrapperElem i JS) */
+    display: flex; /* Alla slides intill varandra på en rad */
+    transform: translateX(0); /* Värdet ändras i JS, då elementet förskjuts */
+    transition-property: transform;
+    transition-duration: 0; /* Tiden ändras i JS, för att glidande växling mellan slides. */
+    transition-timing-function: ease-out;
+}
+
+.slideshow > div > div { /* Enskilda "slides" */
+    flex: 0 0 200px; /* Bredd på en slide */
+    max-height: 100dvh; /* Max skärmens höjd */
+    height: 120px; /* Önskad höjd på en slide */
+    padding: 16px;
+    display: flex; /* Centrera innehållet ... */
+    flex-direction: column;
+    justify-content: center; /* ... både vertikalt ... */
+    align-items: center; /* ... och horisontellt */
+    cursor: grab;
+}
+
+.slideshow img {
+    max-width: 100%;
+    max-height: 70%;
+}
+
+.slideshow h4,
+.slideshow p {
+    margin: 0;
+    padding: 0;
+}
+
+/* ----- Presentation av produkter ----- */
+#products {
+    border-bottom: 1px solid #999;
+    margin-bottom: 40px;
+}
+#products > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+#products > div > div {
+    flex: 0 1 140px; /* Bredd för varje produkt */
+    text-align: center;
+}
+#products img {
+    width: 80%
+}
+#products h4,
+#products p {
+    margin: 4px 0;
+}
+#products p {
+    font-size: 0.8em;
+}
+#products button.order {
+    background-color: #82b3e3;
+    color: #000;
+}
+#products button.order:hover {
+    background-color: #4c8fd2;
+}
+
+/* ----- Stil för godispåsen ----- */
+#candybag {
+    max-width: 100%;
+    width: 140px;
+}
