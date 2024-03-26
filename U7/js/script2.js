@@ -4,6 +4,7 @@
 // Globala variabler och konstanter
 let cart;       // Varukorg
 let wishlist;   // Önskelista
+let currentProd;
 // --------------------------------------------------
 // Initiering av programmet. Skapa objekt för varukorg och önskelista.
 function init() {
@@ -19,6 +20,7 @@ function dragStart(e) {
     if (!e.isPrimary) return; // Endast en pekare i detta program
     e.preventDefault();
     let dragElem = this;
+    let spanInnerText = dragElem.querySelector('span').innerText;
     let dragElemRect = dragElem.getBoundingClientRect(); // Storlek och position inom "client"
     let dx = e.clientX - dragElemRect.x; // Avstånd mellan pekaren och ...
     let dy = e.clientY - dragElemRect.y; // ... elementets övre vänstra hörn
@@ -31,38 +33,49 @@ function dragStart(e) {
     dragElem.style.opacity = 0.5;
     document.addEventListener("pointerup", dragEnd);
     document.addEventListener("pointermove", dragMove);
+    let currentDropElem = dragElem.parentNode.parentNode;
     let dropElems = Array.from(document.querySelectorAll(".dropZone")); // Alla drop zones
+    for (let i = 0; i < dropElems.length; i++) {
+        if (dropElems[i] == currentDropElem) {
+            dropElems.splice(i, 1);
+        }
+    }
+    if (dragElem.parentNode.parentNode.id === "favorites") {
+        for (let j = 0; j < wishlist.list.length; j++) {
+            if (wishlist.list[j].artnr === spanInnerText) {
+                currentProd = wishlist.list[j].artnr;
+            }
+        }
+    }
+    else {
+        for (let j = 0; j < cart.list.length; j++) {
+            if (cart.list[j].artnr === spanInnerText) {
+                currentProd = cart.list[j].artnr;
+            }
+        }
+    }
     let dropElem = null; // Det element man släppt på, till att börja med inget
-// Avsluta en drag-operation
+    // Avsluta en drag-operation
     function dragEnd(e) {
         if (!e.isPrimary) return;
         e.preventDefault();
+        dragElem.style.opacity = 1;
         dragClone.remove(); // Ta bort klonen
         document.removeEventListener("pointerup", dragEnd);
         document.removeEventListener("pointermove", dragMove);
         if (dropElem) { // Släppt på en drop zone
             dropElem.classList.remove("hiliteDropZone");
-
-            let h4Element = dragElem.querySelector("h4"); //Sparar h4 elementet
-            let pElement = dragElem.querySelector("p"); //Sparar p elementet, används för att exkludera span elementet
-            let newElement = document.createElement("div"); //skapar ett nytt div
-            newElement.appendChild(h4Element);
-            newElement.append(pElement);
-            let listDiv = dropElem.querySelector(".list"); //anropar div med klassen .list
-            if(dropElem.id == "shoppingcart"){
-                dragElem.remove();
-                listDiv.appendChild(newElement);
-                newElement.addEventListener("pointerdown", dragStart);
-                dropElem.classList.remove("hiliteDropZone");
+            if (dropElem.id == "shoppingcart") {
+                cart.addItem(currentProd);
+                wishlist.removeItem(currentProd);
             }
-            else if(dropElem.id == "favorites"){
-                dragElem.remove();
-                listDiv.appendChild(newElement);
-                newElement.addEventListener("pointerdown", dragStart);
-                dropElem.classList.remove("hiliteDropZone");
+            else if (dropElem.id == "favorites") {
+                cart.removeItem(currentProd);
+                wishlist.addItem(currentProd);
             }
-            else if(dropElem.id == "trashcan"){
-                dragElem.remove();
+            else if (dropElem.id == "trashcan") {
+                cart.removeItem(currentProd);
+                wishlist.removeItem(currentProd);
             }
         }
     } // Slut dragEnd
@@ -74,10 +87,10 @@ function dragStart(e) {
         dragClone.style.left = (e.pageX - dx) + "px";
         dragClone.style.top = (e.pageY - dy) + "px";
         let hoverElems = document.elementsFromPoint(e.clientX, e.clientY);
-            // Array med de element som pekaren är över
-            // clientX och clientY, eftersom funktionen kräver koordinater relativa till viewport
+        // Array med de element som pekaren är över
+        // clientX och clientY, eftersom funktionen kräver koordinater relativa till viewport
         let elem = overlapItem(dropElems, hoverElems);
-            // Om något av elementen är en drop zone, returneras det, annars null
+        // Om något av elementen är en drop zone, returneras det, annars null
         if (elem != dropElem) { // Ej samma element som förra gången dragMove anropades
             // "enter" och "leave" ska endast utföras en gång, då man kommer in eller lämnar
             if (elem) { // Kommer in över en drop zone ("enter")
